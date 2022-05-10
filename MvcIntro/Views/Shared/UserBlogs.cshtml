@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MvcIntro.Models.Entities.Blog>
+
+<p>
+    @Html.ActionLink("Create New Blog", "Create", "Blogs")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BlogDateTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BlogDateTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { blogID = item.BlogID }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Details", "Details", new { blogID = item.BlogID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Delete", "Delete", new { blogID = item.BlogID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

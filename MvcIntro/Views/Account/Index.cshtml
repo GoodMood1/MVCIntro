@@ -1,0 +1,22 @@
+﻿@model MvcIntro.Models.Entities.User
+
+@{
+    ViewBag.Title = "User profile";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            Welcome: @HttpContext.Current.User.Identity.Name
+        </dd>
+    </dl>
+
+    @{ Html.RenderPartial("ShowError"); }
+
+    @{ Html.RenderAction("UserBlogs", "Blogs"); }
+
+</div>
